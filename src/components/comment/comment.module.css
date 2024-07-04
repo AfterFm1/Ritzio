@@ -1,0 +1,27 @@
+.text{
+    width:100%;
+    background-color: var(--textColor);
+    color:var(--bg);
+    border:none;
+    border-radius:8px;
+    padding:16px;
+    height: 100px;
+    margin-top: 40px;
+    margin-bottom:30px;
+}
+.button{
+    width:max-content;
+    border: 2px solid var(--textColor);
+    border-radius:8px;
+    padding:5px;
+    cursor:pointer;
+    background-color: var(--textColor);
+    color: var(--bg);
+    font-size:15px;
+    font-weight:600;
+    &:hover{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.05);
+        color:var(--textColor);
+    }
+}

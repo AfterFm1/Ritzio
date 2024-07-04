@@ -1,0 +1,58 @@
+.container{
+    flex:2;
+}
+@media screen and (max-width:1280px) {
+    .container{
+        flex:3;
+    }
+}
+@media screen and (max-width:768px) {
+    .container{
+        display: none;
+    }
+}
+
+
+.category{
+    height:50px;
+    width:25%;
+    border-radius:8px;
+    color:var(--textColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:15px;
+    padding:10px;
+    font-weight: 500;
+}
+
+@media screen and (max-width:1024px) {
+    .category{
+        width:35%;
+    }
+}
+.subtitle{
+    margin-top:40px;
+    color: var(--softTextColor);
+    font-size:14px;
+}
+
+
+.category.sports{
+    background-color: #57c4ff31;;
+}
+.category.education{
+    background-color: #da85c731;;
+}
+.category.books{
+    background-color: #7fb88133;
+}
+.category.politics{
+    background-color: #ff795736;
+}
+.category.fitness{
+    background-color: #ffb04f45;
+}
+.category.humor{
+    background-color: #5e4fff31;
+}
