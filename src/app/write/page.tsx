@@ -23,7 +23,7 @@ const WritePage = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState<File | null>(null);
   const [media,setMedia]= useState("");
   const [category, setCategory] = useState("");
   const { status } = useSession();
@@ -32,14 +32,25 @@ const WritePage = () => {
 
   useEffect(() => {
     const upload = () => {
-      const name=new Date().getTime + file.name
+      let name;
+     if (file) {
+         name = new Date().getTime() + file.name;
+      } else {
+        console.error("File is null or undefined");
+      }
       const storageRef = ref(storage, name);
 
-      const uploadTask = uploadBytesResumable(storageRef, file);
+    let uploadTask:any;
+
+if (file) {
+  uploadTask = uploadBytesResumable(storageRef, file);
+} else {
+  console.error('No file selected');
+}
 
       uploadTask.on(
         "state_changed",
-        (snapshot) => {
+        (snapshot:any) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
@@ -52,7 +63,7 @@ const WritePage = () => {
               break;
           }
         },
-        (error) => {},
+        (error:any) => {},
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setMedia(downloadURL);
@@ -68,7 +79,7 @@ const WritePage = () => {
     router.push("/");
   }
 
-  const slugify = (str) =>
+  const slugify = (str:any) =>
     str
       .toLowerCase()
       .trim()
@@ -127,7 +138,14 @@ const WritePage = () => {
             <input
               type="file"
               id="image"
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={(e) => {
+                            const files = e.target.files;
+                          if (files && files[0]) {
+                          setFile(files[0]);
+                           } else {
+                        setFile(null);
+                          }
+                          }}
               style={{ display: "none" }}
             />
               <label htmlFor="image">
