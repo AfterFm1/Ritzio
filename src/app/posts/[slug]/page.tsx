@@ -10,9 +10,9 @@ import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import Menu from "@/components/menu/Menu";
 import Comment from "@/components/comment/Comment";
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher = (url:any) => fetch(url).then((res) => res.json());
 
-const SinglePost = ({ params }) => {
+const SinglePost = ({ params }: {params:any) => {
   const { slug } = params;
   const { data, error } = useSWR(
     `http://localhost:3000/api/posts/${slug}`,
@@ -24,7 +24,7 @@ const SinglePost = ({ params }) => {
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 
-  const handleClick = (name) => {
+  const handleClick = (name:any) => {
     toast({
       title: `You are now following ${name}`,
     });
