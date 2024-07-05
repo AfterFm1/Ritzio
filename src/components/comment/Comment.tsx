@@ -6,7 +6,7 @@ import Link from 'next/link';
 import SingleComment from '../singleComment/SingleComment';
 import { useSession } from 'next-auth/react';
 
-const fetcher= async(url)=>{
+const fetcher= async(url:any)=>{
   const res=await fetch(url);
   const data=await res.json();
   if(!res.ok){
@@ -16,7 +16,7 @@ const fetcher= async(url)=>{
   return data;
 }
 
-const Comment = ({postSlug}) => {
+const Comment = ({postSlug}:{postSlug:any}) => {
   const {status}=useSession();
   const {data,mutate,isLoading}=useSWR(`http://localhost:3000/api/comments?postSlug=${postSlug}`,fetcher)
   const [desc,setDesc]=useState("");
@@ -45,7 +45,7 @@ const Comment = ({postSlug}) => {
             </div>
         }
         <div className="text-3xl font-bold mt-10 mb-10">Comments</div>
-        {isLoading? "Loading...": data?.map(item=>(
+        {isLoading? "Loading...": data?.map((item:any)=>(
         <SingleComment item={item} key={item._id}/>
       ))}
     </div>
