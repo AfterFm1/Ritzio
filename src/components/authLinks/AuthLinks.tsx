@@ -5,6 +5,9 @@ import React from 'react'
 
 const AuthLinks = () => {
   const {status}=useSession();
+  const handleClick=()=>{
+    signOut();
+  }
   return (
     <>
     {status==="unauthenticated" &&
@@ -16,7 +19,7 @@ const AuthLinks = () => {
     {status==="authenticated" &&
     <>
     <div className="font-semibold"><Link href="/write">Write</Link></div>
-    <div className="font-semibold cursor-pointer" onClick={signOut}>Logout</div>
+    <div className="font-semibold cursor-pointer" onClick={handleClick}>Logout</div>
     </>
     }
      </>
