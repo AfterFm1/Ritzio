@@ -5,7 +5,8 @@ import PostCard from '../postCard/PostCard'
 import Paginate from '../pagination/Pagination'
 
 const getData=async(page:any,cat:any)=>{
-  const res=await fetch(`http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`,
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const res=await fetch(`${apiBaseUrl}/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache:"no-store"
     }
