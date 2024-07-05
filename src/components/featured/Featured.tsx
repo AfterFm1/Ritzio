@@ -16,7 +16,7 @@ const Featured = () => {
         </div>
         <div className="flex-1 flex flex-col gap-5 justify-center h-full">
            <div className="xl:text-5xl lg:text-3xl md:text-2xl sm:text-xl text-2xl font-semibold">Ready to unleash your ideas?</div>
-           <p className="lg:text-base md:text-sm sm:text-xs text-base font-semibold text-softColor">Ritzio, where creativity knows no boundaries. Here, everyone—regardless of who you are or where you're from—has the freedom to share their ideas openly. Join us in celebrating diverse perspectives, sparking insightful discussions, and shaping a community where every voice matters</p>
+           <p className="lg:text-base md:text-sm sm:text-xs text-base font-semibold text-softColor">Ritzio, where creativity knows no boundaries. Here, everyone—regardless of who you are or where you are from—has the freedom to share their ideas openly. Join us in celebrating diverse perspectives, sparking insightful discussions, and shaping a community where every voice matters</p>
            <div className="flex items-center gap-5">
            <Link href="/blog" className={styles.button}>Start Reading</Link>
            { status==="unauthenticated" &&
