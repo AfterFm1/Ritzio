@@ -10,7 +10,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination"
 
-const Paginate = ({page,lastPage,isBlog,cat}) => {
+const Paginate = ({page,lastPage,isBlog,cat}:{page:any,lastPage:any,isBlog:any,cat:any}) => {
   return (
     <div>
       <Pagination >
