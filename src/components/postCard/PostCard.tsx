@@ -12,7 +12,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-const PostCard = ({ item, key }) => {
+const PostCard = ({ item, key }:{item:any,key:any}) => {
   const cat = "music";
   const { toast } = useToast();
   const handleClick = () => {
