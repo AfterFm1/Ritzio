@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Card = ({cat,img,key}) => {
+const Card = ({cat,img,key}:{cat:any,img:any,key:any}) => {
   return (
     <Link href={`/blog/?cat=${cat}`} key={key}>
       <div className="h-64 w-64  rounded-2xl relative flex flex-col justify-center items-center hover:opacity-80 hover:scale-105 opacity-90">
