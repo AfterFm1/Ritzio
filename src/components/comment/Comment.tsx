@@ -18,7 +18,8 @@ const fetcher= async(url:any)=>{
 
 const Comment = ({postSlug}:{postSlug:any}) => {
   const {status}=useSession();
-  const {data,mutate,isLoading}=useSWR(`http://localhost:3000/api/comments?postSlug=${postSlug}`,fetcher)
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const {data,mutate,isLoading}=useSWR(`${apiBaseUrl}/api/comments?postSlug=${postSlug}`,fetcher)
   const [desc,setDesc]=useState("");
 
   const handleSubmit=async()=>{
