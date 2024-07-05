@@ -2,7 +2,7 @@
 import { ThemeContext } from '@/context/ThemeContext';
 import React, { useContext,useState,useEffect } from 'react'
 
-const ThemeProvider = ({children}) => {
+const ThemeProvider = ({children}:{children:any}) => {
     const {theme}=useContext(ThemeContext);
     const [mounted,setMounted]=useState(false);
     useEffect(()=>{
