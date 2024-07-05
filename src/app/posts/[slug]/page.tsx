@@ -12,10 +12,11 @@ import Comment from "@/components/comment/Comment";
 
 const fetcher = (url:any) => fetch(url).then((res) => res.json());
 
-const SinglePost = ({ params }: {params:any}) => {
+const SinglePost = ({ params }:{params:any}) => {
   const { slug } = params;
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
   const { data, error } = useSWR(
-    `http://localhost:3000/api/posts/${slug}`,
+    `${apiBaseUrl}/api/posts/${slug}`,
     fetcher
   );
   const { toast } = useToast();
