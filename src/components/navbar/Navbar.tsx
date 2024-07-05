@@ -23,6 +23,9 @@ import { signOut, useSession } from "next-auth/react";
 const Navbar = () => {
   const { theme } = useContext(ThemeContext);
   const {status,data:session}=useSession();
+  const handleClick=()=>{
+    signOut();
+  }
   console.log(session);
   return (
     <div className="flex items-center justify-between h-24">
@@ -56,14 +59,14 @@ const Navbar = () => {
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Avatar>
-              <AvatarImage src={session.user.image} />
+              <AvatarImage src={session.user.image ?? undefined} />
               <AvatarFallback>{session.user.name?.substring(0,2)}</AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={signOut} className="cursor-pointer">Logout</DropdownMenuItem>
+            <DropdownMenuItem onClick={handleClick} className="cursor-pointer">Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 }
