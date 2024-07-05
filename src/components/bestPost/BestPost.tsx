@@ -3,7 +3,7 @@ import styles from './bestPost.module.css'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import Link from 'next/link'
-const BestPost = ({link,img,name,date,cat,title}) => {
+const BestPost = ({link,img,name,date,cat,title}:{link:any,img:any,name:any,date:any,cat:any,title:any}) => {
   return (
      <Link href={link} className="flex items-center gap-2 mt-11" >
         <Avatar>
