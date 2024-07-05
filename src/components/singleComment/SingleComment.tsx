@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./singleComment.module.css";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const SingleComment = ({item}) => {
+const SingleComment = ({item}:{item:any}) => {
   return (
     <div className="flex items-center gap-3 mt-10">
       <Avatar>
