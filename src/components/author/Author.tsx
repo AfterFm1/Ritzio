@@ -3,7 +3,7 @@ import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useToast } from "@/components/ui/use-toast"
 import styles from "./author.module.css"
-const Author = ({img,name,desc}) => {
+const Author = ({img,name,desc}:{img:any,name:any,desc:any}) => {
     const { toast } = useToast();
     const handleClick=()=>{
         toast({
