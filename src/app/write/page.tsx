@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./writePage.module.css";
 import Image from "next/image";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -15,11 +14,13 @@ import {
 } from "@/components/ui/select";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {app} from "../../utils/firebase"
+import dynamic from "next/dynamic";
 
 
 const storage = getStorage(app);
 
 const WritePage = () => {
+  const ReactQuill=dynamic(()=>import('react-quill'),{ssr:false});
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
@@ -33,14 +34,14 @@ const WritePage = () => {
   useEffect(() => {
     const upload = () => {
       let name;
-     if (file) {
+      if (file) {
          name = new Date().getTime() + file.name;
       } else {
         console.error("File is null or undefined");
       }
       const storageRef = ref(storage, name);
 
-    let uploadTask:any;
+      let uploadTask:any;
 
 if (file) {
   uploadTask = uploadBytesResumable(storageRef, file);
@@ -139,13 +140,13 @@ if (file) {
               type="file"
               id="image"
               onChange={(e) => {
-                            const files = e.target.files;
-                          if (files && files[0]) {
-                          setFile(files[0]);
-                           } else {
-                        setFile(null);
-                          }
-                          }}
+                const files = e.target.files;
+                if (files && files[0]) {
+                  setFile(files[0]);
+                } else {
+                  setFile(null);
+                }
+              }}
               style={{ display: "none" }}
             />
               <label htmlFor="image">
