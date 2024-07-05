@@ -19,7 +19,7 @@ const CategoryList = async() => {
     <div className="md:mt-8 sm:mt-1">
       <div className="mb-16 text-3xl font-bold">Popular Categories</div>
       <div className="flex flex-wrap sm:gap-10 md:gap-20 lg:gap-8 gap-10">
-        {data?.map(item=>(
+        {data?.map((item:any)=>(
       <Card cat={item.title} img={item.img} key={item._id}/>
     )
        ) }
